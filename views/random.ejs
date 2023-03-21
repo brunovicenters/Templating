@@ -9,6 +9,9 @@
   <body>
     <h1>Random Number</h1>
 
-    <p>Your random number is: <%= numRand %></p>
-  </body>
+    <h3>Your random number is: <%= numRand %></h3>
+    <h4>It's an 
+      <%= numRand%2 === 0 ? "even" : "odd" %>
+      number!
+    </h4>
 </html>
