@@ -19,6 +19,11 @@ app.get("/r/:subreddit", (req, res) => {
   res.render("subreddit", { subreddit });
 });
 
+app.get("/cats", (req, res) => {
+  const cats = ["Kiki", "Winston", "Mike", "Rocket"];
+  res.render("cats", { cats });
+});
+
 app.listen(8080, () => {
   console.log("Listening on port 8080");
 });
