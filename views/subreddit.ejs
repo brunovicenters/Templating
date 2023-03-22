@@ -18,9 +18,9 @@
     <title><%= name %></title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Express Study</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -35,10 +35,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" aria-current="page" href="/rand">Random</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="/cats">Cats</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -48,19 +48,19 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Subreddits
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/r/soccer">Soccer</a></li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="/r/chickens">Chickens</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/r/mightyharvest"
+                    >Mighty Harvest</a
+                  >
                 </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -77,23 +77,30 @@
         </div>
       </div>
     </nav>
-    <h1>Browsing <%= name %> subreddit</h1>
-    <!-- description on the left and subscribers' number on the right("subscribers" on the bottom of the number) -->
-    <p><%= description %><span><%= subscribers %>subscribers</span></p>
-    <!-- delete -->
-    <hr />
-
-    <% for(let post of posts) {%>
-    <section>
-      <h4><%= post.title %></h4>
-      <!-- smoother color and smaller -->
-      <p><%= post.author %></p>
+    <div class="container">
+      <h1><%= name %> subreddit</h1>
+      <!-- description on the left and subscribers' number on the right("subscribers" on the bottom of the number) -->
+      <div class="d-flex">
+        <p class="col-9 m-0 d-inline"><%= description %></p>
+        <span class="align-self-end text-center blockquote-footer"
+          ><%= subscribers %><span class="d-block">subscribers</span></span
+        >
+      </div>
       <!-- delete -->
-      <% if (post.img) { %>
-      <img src="<%= post.img %>" alt="" />
-      <% } %>
       <hr />
-    </section>
-    <% } %>
+
+      <% for(let post of posts) {%>
+      <section>
+        <h4><%= post.title %></h4>
+        <!-- smoother color and smaller -->
+        <cite class="d-block"><%= post.author %></cite>
+        <!-- delete -->
+        <% if (post.img) { %>
+        <img class="rounded w-25 h-auto" src="<%= post.img %>" alt="" />
+        <% } %>
+        <hr />
+      </section>
+      <% } %>
+    </div>
   </body>
 </html>
