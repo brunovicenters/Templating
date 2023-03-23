@@ -79,22 +79,18 @@
     </nav>
     <div class="container">
       <h1><%= name %> subreddit</h1>
-      <!-- description on the left and subscribers' number on the right("subscribers" on the bottom of the number) -->
       <div class="d-flex">
         <p class="col-9 m-0 d-inline"><%= description %></p>
         <span class="align-self-end text-center blockquote-footer"
           ><%= subscribers %><span class="d-block">subscribers</span></span
         >
       </div>
-      <!-- delete -->
       <div class="border-1 border-top border-dark pb-3"></div>
 
       <% for(let post of posts) {%>
       <section>
         <h4><%= post.title %></h4>
-        <!-- smoother color and smaller -->
         <cite class="d-block blockquote-footer pt-2"><%= post.author %></cite>
-        <!-- delete -->
         <% if (post.img) { %>
         <img class="rounded w-25 h-auto pb-2" src="<%= post.img %>" alt="" />
         <% } %>
