@@ -9,12 +9,12 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 app.get("/", (req, res) => {
-  res.render("home.ejs");
+  res.render("home.ejs", { name: "Home" });
 });
 
 app.get("/rand", (req, res) => {
   const numRand = Math.floor(Math.random() * 10) + 1;
-  res.render("random.ejs", { numRand });
+  res.render("random.ejs", { numRand, name: "Random" });
 });
 
 app.get("/r/:subreddit", (req, res) => {
@@ -23,13 +23,13 @@ app.get("/r/:subreddit", (req, res) => {
   if (data) {
     res.render("subreddit", { ...data });
   } else {
-    res.render("notfound", { subreddit });
+    res.render("notfound", { subreddit, name: "404" });
   }
 });
 
 app.get("/cats", (req, res) => {
   const cats = ["Kiki", "Winston", "Mike", "Rocket"];
-  res.render("cats", { cats });
+  res.render("cats", { cats, name: "Cats" });
 });
 
 app.listen(8080, () => {

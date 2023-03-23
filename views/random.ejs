@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random</title>
-  </head>
+  <%- include('components/head') %>
   <body>
-    <h1>Random Number</h1>
+    <%- include('components/navBar') %>
+    <div class="container">
+    <h1 class="display-1">Random Number</h1>
 
-    <h3>Your random number is: <%= numRand %></h3>
-    <h4>It's an 
+    <p class='display-6'>Your random number is: <%= numRand %></p>
+    <p class="fs-2">It's an 
       <%= numRand%2 === 0 ? "even" : "odd" %>
       number!
-    </h4>
+    </p>
+  </div>
 </html>
