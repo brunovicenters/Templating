@@ -20,7 +20,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Express Study</a>
+        <a class="navbar-brand" href="/">Express Study</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -87,18 +87,18 @@
         >
       </div>
       <!-- delete -->
-      <hr />
+      <div class="border-1 border-top border-dark pb-3"></div>
 
       <% for(let post of posts) {%>
       <section>
         <h4><%= post.title %></h4>
         <!-- smoother color and smaller -->
-        <cite class="d-block"><%= post.author %></cite>
+        <cite class="d-block blockquote-footer pt-2"><%= post.author %></cite>
         <!-- delete -->
         <% if (post.img) { %>
-        <img class="rounded w-25 h-auto" src="<%= post.img %>" alt="" />
+        <img class="rounded w-25 h-auto pb-2" src="<%= post.img %>" alt="" />
         <% } %>
-        <hr />
+        <div class="border-1 border-top border-dark pb-3"></div>
       </section>
       <% } %>
     </div>
