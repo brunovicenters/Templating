@@ -32,6 +32,10 @@ app.get("/cats", (req, res) => {
   res.render("cats", { cats, name: "Cats" });
 });
 
+app.get("*", (req, res) => {
+  res.render("notfound", { name: "404" });
+});
+
 app.listen(8080, () => {
   console.log("Listening on port 8080");
 });
